@@ -6,9 +6,14 @@ module DPL
       # https://github.com/opscode/chef/blob/11.16.4/lib/chef/knife/cookbook_site_share.rb
 
       # Compatibility with ruby 1.9
-      requires 'rack', version: '< 2.0'
-      requires 'mime-types', version: '~> 1.16'
-      requires 'chef', version: '< 12.0'
+      case RUBY_VERSION
+      when /^1\.[0-9](\..*)?$/
+        requires 'rack', version: '< 2.0'
+        requires 'mime-types', version: '~> 1.16'
+        requires 'chef', version: '< 12.0'
+      when /^2.[0-2](\..*)?$/
+        requires 'chef', version: '~> 12.0'
+      end
       requires 'chef', load: 'chef/config'
       requires 'chef', load: 'chef/cookbook_loader'
       requires 'chef', load: 'chef/cookbook_uploader'
@@ -41,7 +46,7 @@ module DPL
         # So we assume cookbook path is '..'
         cl = ::Chef::CookbookLoader.new '..'
         @cookbook = cl[cookbook_name]
-        ::Chef::CookbookUploader.new(cookbook, '..').validate_cookbooks
+        ::Chef::CookbookUploader.new(cookbook).validate_cookbooks
       end
 
       def push_app
