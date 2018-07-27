@@ -12,6 +12,7 @@ module DPL
         requires 'mime-types', version: '~> 1.16'
         requires 'chef', version: '< 12.0'
       when /^2.[0-2](\..*)?$/
+        requires 'net-telnet', version: '= 0.1.1'
         requires 'chef', version: '~> 12.0'
       end
       requires 'chef', load: 'chef/config'
