@@ -89,6 +89,7 @@ end
 
 group :chef_supermarket do
   gem 'chef'
+  gem 'openssl', '>= 2.1.2'
 end
 
 group :deis do

@@ -15,6 +15,7 @@ module DPL
         requires 'net-telnet', version: '= 0.1.1'
         requires 'chef', version: '~> 12.0'
       end
+      requires 'openssl', version: '>= 2.1.2'
       requires 'chef', load: 'chef/config'
       requires 'chef', load: 'chef/cookbook_loader'
       requires 'chef', load: 'chef/cookbook_uploader'
