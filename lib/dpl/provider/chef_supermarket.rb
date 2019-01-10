@@ -11,7 +11,7 @@ module DPL
         requires 'rack', version: '< 2.0'
         requires 'mime-types', version: '~> 1.16'
         requires 'chef', version: '< 12.0'
-      when /^2.[0-2](\..*)?$/
+      when /^2.[0-4](\..*)?$/
         requires 'net-telnet', version: '= 0.1.1'
         requires 'chef', version: '~> 12.0'
       end
