@@ -37,7 +37,7 @@ module DPL
 
       def check_app
         @cookbook_name = options[:cookbook_name] || options[:app]
-        @cookbook_category = options[:cookbook_category]
+        @cookbook_category = options[:cookbook_category] || options[:category]
         unless cookbook_category
           error "Missing cookbook_category option\n" +
             "see https://docs.getchef.com/knife_cookbook_site.html#id12"
